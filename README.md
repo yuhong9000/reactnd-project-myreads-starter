@@ -8,7 +8,7 @@ Moving a book to shelf 'none' will delete the book from the bookshelves.
 
 ## TL;DR
 
-To get started running right away:
+To run the app right away:
 
 * make sure node and npm are installed and up to date
 * install all project dependencies with `npm install`
