@@ -18,18 +18,19 @@ class SearchBar extends React.Component {
 
   updateQuery = (query) => {
     this.setState(()=>({
-      query: query.trim()
+      query: query,
+      books: []
     }));
-    BooksAPI.search(query.trim())
+
+    query !== '' && BooksAPI.search(query)
       .then((books) => {
-        console.log(books);
         // if the book is already on shelf, replace it with shelf's books
         // which contains shelf informaiton
-        books.forEach((book,i)=>{
+        //
+        books.length && books.forEach((book,i)=>{
           const index = this.props.books.findIndex(b => b.id ===book.id);
           if(index > 0){
             books[i] = this.props.books[index];
-            console.log(books[i]);
           }
         });
         this.setState({

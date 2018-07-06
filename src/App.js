@@ -47,6 +47,8 @@ class BooksApp extends React.Component {
           let books = prevState.books;
           if(books.findIndex(b => b.id===book.id) < 0)
             books.push(book);
+          if(shelf === 'none')
+            books = books.filter(e => e.id !== book.id);
           return {books};
         });
       });
